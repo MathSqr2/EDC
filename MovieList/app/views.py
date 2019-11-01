@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from datetime import datetime
-
+from lxml import etree
+import feedparser
 
 # Create your views here.
 
@@ -28,3 +29,18 @@ def about(request):
         'year': datetime.now().year,
     }
     return render(request, 'about.html', tparams)
+
+def news(request):
+    rss = feedparser.parse('https://www.cinemablend.com/rss_news_movies.xml')
+    tparams = {
+        'title': 'News',
+        'rss': rss,
+    }
+    return render(request, 'news.html', tparams)
+
+def category(request, category):
+    tparams = {
+        'title': 'News',
+        'category': category
+    }
+    return render(request, 'category.html', tparams)

@@ -23,4 +23,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('contact/', views.contact, name='contact'),
     path('about/', views.about, name='about'),
-]
+    path('news/', views.news, name='news'),
+    path('category/<str:category>', views.category, name='category')
+    ]
+
