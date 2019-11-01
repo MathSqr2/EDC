@@ -45,32 +45,12 @@
 
                     <div id="main">
                         <div class="inner">
-                            <section>
-                                <div class="table-wrapper">
-									<div class="table-wrapper">
-										<table>
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>link</th>
-												</tr>
-											</thead>
-                                            {%  for post in rss.entries %}
-                                                <tr>
-                                                    <td>{{ post.title }} </td>
-                                                    <td>{{ post.description }}  </td>
-                                                    <td></td>
-                                                </tr>
-                                            {%  endfor %}
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-												</tr>
-											</tfoot>
-										</table>
-                                </div>
-                            </section>
+                            {%  for post in rss.entries %}
+                                <hr/>
+                                <h3>{{ post.title }} </h3>
+                                <p><a href="{{ post.link }}"> {{ post.description| safe }}</a></p>
+                            {%  endfor %}
+
                         </div>
 					</div>
 
